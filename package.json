@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "http-server dist -p 4173 -o",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx --fix",
     "process-data": "node scripts/processCollegeData.js",
@@ -42,6 +42,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.1.1",
@@ -57,15 +60,13 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "express-rate-limit": "^7.1.5",
     "helmet": "^7.1.0",
+    "http-server": "^14.1.1",
     "jsdom": "^23.0.1",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.9.7",
     "papaparse": "^5.4.1",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "terser": "^5.43.1",
     "vite": "^5.0.0",
     "vitest": "^1.0.0"
