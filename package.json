@@ -11,6 +11,8 @@
     "lint:fix": "eslint . --ext js,jsx --fix",
     "process-data": "node scripts/processCollegeData.js",
     "migrate-data": "node scripts/migrateData.js",
+    "csv-to-json": "node scripts/csvToJson.js",
+    "csv-to-json-simple": "node scripts/csvToJsonSimple.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "deploy": "npm run build && npm run deploy:upload",
