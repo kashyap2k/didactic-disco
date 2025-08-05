@@ -27,8 +27,8 @@ const Search = () => {
     const loadData = async () => {
       try {
         // In a real app, this would be an API call
-        const medicalData = await import('@data/medicalColleges.json')
-        const dentalData = await import('@data/dentalColleges.json')
+            const medicalData = await import('@data/medicalColleges.json')
+    const dentalData = await import('@data/dentalColleges.json')
         
         const allColleges = [
           ...medicalData.default.map(college => ({ ...college, type: 'medical' })),
