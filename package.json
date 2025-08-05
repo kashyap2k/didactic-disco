@@ -20,9 +20,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.16",
     "axios": "^1.6.2",
     "chart.js": "^4.4.0",
     "clsx": "^2.0.0",
@@ -66,6 +63,9 @@
     "papaparse": "^5.4.1",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "terser": "^5.43.1",
     "vite": "^5.0.0",
     "vitest": "^1.0.0"
