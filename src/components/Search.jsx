@@ -26,19 +26,42 @@ const Search = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // In a real app, this would be an API call
-            const medicalData = await import('@data/medicalColleges.json')
-    const dentalData = await import('@data/dentalColleges.json')
+        // Use API service with fallback to static data
+        const apiService = await import('@services/api.js')
+        const api = apiService.default
+        
+        // Get colleges from API service
+        const [medicalColleges, dentalColleges] = await Promise.all([
+          api.getMedicalColleges(),
+          api.getDentalColleges()
+        ])
         
         const allColleges = [
-          ...medicalData.default.map(college => ({ ...college, type: 'medical' })),
-          ...dentalData.default.map(college => ({ ...college, type: 'dental' }))
+          ...medicalColleges.map(college => ({ ...college, type: 'medical' })),
+          ...dentalColleges.map(college => ({ ...college, type: 'dental' }))
         ]
         
         setColleges(allColleges)
+        console.log('✅ Loaded data from API service')
       } catch (error) {
-        console.error('Error loading college data:', error)
-        toast.error('Failed to load college data')
+        console.error('API service failed, falling back to static data:', error)
+        
+        // Fallback to static data if API fails
+        try {
+          const medicalData = await import('@data/medicalColleges.json')
+          const dentalData = await import('@data/dentalColleges.json')
+          
+          const allColleges = [
+            ...medicalData.default.map(college => ({ ...college, type: 'medical' })),
+            ...dentalData.default.map(college => ({ ...college, type: 'dental' }))
+          ]
+          
+          setColleges(allColleges)
+          console.log('⚠️ Using fallback static data')
+        } catch (fallbackError) {
+          console.error('Fallback data loading failed:', fallbackError)
+          toast.error('Failed to load college data')
+        }
       } finally {
         setLoading(false)
       }

@@ -10,6 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx --fix",
     "process-data": "node scripts/processCollegeData.js",
+    "migrate-data": "node scripts/migrateData.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "deploy": "npm run build && npm run deploy:upload",
@@ -39,6 +40,8 @@
     "react-router-dom": "^6.20.1",
     "react-virtualized-auto-sizer": "^1.0.20",
     "react-window": "^1.8.8",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "tailwind-merge": "^2.0.0",
     "zod": "^3.22.4"
   },
